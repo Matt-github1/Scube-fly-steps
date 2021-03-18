@@ -5,8 +5,8 @@
 /* CONSTANTS AND MAIN VARIABLES OF THE PROGRAM
  * States :
  *    0 : does nothing, wait commands
- *  11 : initialisation
- *  12 : sensor initialisation
+ *   11 : initialisation
+ *   12 : sensor initialisation
  *   13 : ready for launch
  *   14 : sensor error
  *   21 : powered ascent
@@ -20,17 +20,25 @@
  *  321 : nominal slow descent
  *  322 : second parachute failure
  */
-int state = 11;
 
-/* MAIN FUNCTION */
+/****************************
+********MAIN FUNCTION******** 
+****************************/
 
 int main()
 {
+    int state = 11;
+
     while (true)
     {
-        /* BACKGROUND TASKS */
+        /*********************
+        ***BACKGROUND TASKS*** 
+        *********************/
+        do // tasks
 
-        /* STATES */
+        /***********
+        ***STATES*** 
+        ***********/
         if (state == 11)
         {
             // initialise variables, clocks, registery ...;
