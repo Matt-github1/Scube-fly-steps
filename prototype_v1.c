@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "prototype_v1_aux.h" 
 /* CONSTANTS AND MAIN VARIABLES OF THE PROGRAM
  * States :
  *    0 : does nothing, wait commands
@@ -21,20 +22,53 @@
  *  322 : second parachute failure
  */
 
+
+
 /****************************
 ********MAIN FUNCTION******** 
 ****************************/
 
 int main()
-{
-    int state = 11;
+{   
+    /***************
+    **Constant def**
+    ***************/
+
+    /** States **/
+    const int ST_WAIT                     = 0;
+    const int ST_INITIALISATION           = 11;
+    const int ST_SENSORS_INITIALISATION   = 12;
+    const int ST_READY_TO_LAUNCH          = 13;
+    const int ST_SENSORS_ERROR            = 14;
+    const int ST_POWED_ASCENT             = 21;
+    const int ST_DEGRADED_TRAJECTORY_1    = 211;
+    const int ST_COASTING_ASCENT          = 22;
+    const int ST_DEGRADED_TRAJECTORY_2    = 221;
+    const int ST_FAST_DESCENT             = 31;
+    const int ST_NOMINAL_FAST_DESCENT     = 311;
+    const int ST_FIRST_PARACHUTE_FAILURE  = 312;
+    const int ST_SLOW_DESCENT             = 32;
+    const int ST_NOMINAL_SLOW_DESCENT     = 321;
+    const int ST_SECOND_PARACHUTE_FAILURE = 322;
+
+    int state = ST_INITIALISATION;
+    int combustion_time = 0           // TBD
+    int apogee_time = 0               // TBD
+    int security_time = 0             // TBD
+    int stabilisation_time_1 = 0      // TBD
+    int stabilisation_time_2 = 0      // TBD
+    int local_time = 0                // current time of the system, to increment
+    bool engine_on = true
+    int max_vertical_speed = 0        // TBD
+    int min_altitude = 0              // TBD
 
     while (true)
     {
+        local_time++
         /*********************
         ***BACKGROUND TASKS*** 
         *********************/
-        do // tasks
+        //do tasks
 
         /***********
         ***STATES*** 
@@ -171,7 +205,7 @@ int main()
         }
         else
         {
-            // boom I guess
+            // boom I guess;
         }
     }
 }
